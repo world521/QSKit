@@ -12,6 +12,9 @@
     
 
 #import "AppDelegate.h"
+#import "QSFPSLabel.h"
+#import "QSCGUtilities.h"
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,7 +24,20 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    
+    ViewController *vc = [[ViewController alloc] init];
+    self.window.rootViewController = vc;
+    
+    QSFPSLabel *fpsLb = [[QSFPSLabel alloc] init];
+    fpsLb.frame = CGRectMake(kScreenWidth - 10 - fpsLb.frame.size.width, 10, fpsLb.frame.size.width, fpsLb.frame.size.height);
+    [self.window addSubview:fpsLb];
+    fpsLb.layer.zPosition = CGFLOAT_MAX;
+    
     return YES;
 }
 

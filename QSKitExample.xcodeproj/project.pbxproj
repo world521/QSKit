@@ -13,6 +13,10 @@
 		4F5D329922649FE800A016A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F5D329822649FE800A016A4 /* Assets.xcassets */; };
 		4F5D329C22649FE800A016A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F5D329A22649FE800A016A4 /* LaunchScreen.storyboard */; };
 		4F5D329F22649FE800A016A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F5D329E22649FE800A016A4 /* main.m */; };
+		4F5D32AD2264A56500A016A4 /* AllFontTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F5D32AC2264A56500A016A4 /* AllFontTableController.m */; };
+		4FAB8A7E22655F1D009FF1A0 /* QSCGUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FAB8A7D22655F1D009FF1A0 /* QSCGUtilities.m */; };
+		4FAB8A8122656A16009FF1A0 /* QSFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FAB8A8022656A16009FF1A0 /* QSFPSLabel.m */; };
+		4FAB8A8422656D5A009FF1A0 /* QSWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FAB8A8322656D5A009FF1A0 /* QSWeakProxy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,15 @@
 		4F5D329B22649FE800A016A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F5D329D22649FE800A016A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F5D329E22649FE800A016A4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4F5D32AB2264A56500A016A4 /* AllFontTableController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllFontTableController.h; sourceTree = "<group>"; };
+		4F5D32AC2264A56500A016A4 /* AllFontTableController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllFontTableController.m; sourceTree = "<group>"; };
+		4FAB8A7722655B4A009FF1A0 /* QSCGUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QSCGUtilities.h; sourceTree = "<group>"; };
+		4FAB8A7A22655E87009FF1A0 /* QSKitMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QSKitMacro.h; sourceTree = "<group>"; };
+		4FAB8A7D22655F1D009FF1A0 /* QSCGUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSCGUtilities.m; sourceTree = "<group>"; };
+		4FAB8A7F22656A16009FF1A0 /* QSFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSFPSLabel.h; sourceTree = "<group>"; };
+		4FAB8A8022656A16009FF1A0 /* QSFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSFPSLabel.m; sourceTree = "<group>"; };
+		4FAB8A8222656D5A009FF1A0 /* QSWeakProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QSWeakProxy.h; sourceTree = "<group>"; };
+		4FAB8A8322656D5A009FF1A0 /* QSWeakProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QSWeakProxy.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +55,7 @@
 		4F5D328322649FE700A016A4 = {
 			isa = PBXGroup;
 			children = (
+				4F5D32A52264A0D600A016A4 /* QSKit */,
 				4F5D328E22649FE700A016A4 /* QSKitExample */,
 				4F5D328D22649FE700A016A4 /* Products */,
 			);
@@ -62,6 +76,8 @@
 				4F5D329022649FE700A016A4 /* AppDelegate.m */,
 				4F5D329222649FE700A016A4 /* ViewController.h */,
 				4F5D329322649FE700A016A4 /* ViewController.m */,
+				4F5D32AB2264A56500A016A4 /* AllFontTableController.h */,
+				4F5D32AC2264A56500A016A4 /* AllFontTableController.m */,
 				4F5D329522649FE700A016A4 /* Main.storyboard */,
 				4F5D329822649FE800A016A4 /* Assets.xcassets */,
 				4F5D329A22649FE800A016A4 /* LaunchScreen.storyboard */,
@@ -69,6 +85,44 @@
 				4F5D329E22649FE800A016A4 /* main.m */,
 			);
 			path = QSKitExample;
+			sourceTree = "<group>";
+		};
+		4F5D32A52264A0D600A016A4 /* QSKit */ = {
+			isa = PBXGroup;
+			children = (
+				4F5D32AE2264A9CD00A016A4 /* Base */,
+				4F5D32B02264A9F800A016A4 /* Utility */,
+			);
+			path = QSKit;
+			sourceTree = SOURCE_ROOT;
+		};
+		4F5D32AE2264A9CD00A016A4 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				4FAB8A7A22655E87009FF1A0 /* QSKitMacro.h */,
+				4F5D32AF2264A9CD00A016A4 /* Quartz */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		4F5D32AF2264A9CD00A016A4 /* Quartz */ = {
+			isa = PBXGroup;
+			children = (
+				4FAB8A7722655B4A009FF1A0 /* QSCGUtilities.h */,
+				4FAB8A7D22655F1D009FF1A0 /* QSCGUtilities.m */,
+			);
+			path = Quartz;
+			sourceTree = "<group>";
+		};
+		4F5D32B02264A9F800A016A4 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				4FAB8A7F22656A16009FF1A0 /* QSFPSLabel.h */,
+				4FAB8A8022656A16009FF1A0 /* QSFPSLabel.m */,
+				4FAB8A8222656D5A009FF1A0 /* QSWeakProxy.h */,
+				4FAB8A8322656D5A009FF1A0 /* QSWeakProxy.m */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,8 +195,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FAB8A8122656A16009FF1A0 /* QSFPSLabel.m in Sources */,
+				4FAB8A7E22655F1D009FF1A0 /* QSCGUtilities.m in Sources */,
 				4F5D329422649FE700A016A4 /* ViewController.m in Sources */,
 				4F5D329F22649FE800A016A4 /* main.m in Sources */,
+				4FAB8A8422656D5A009FF1A0 /* QSWeakProxy.m in Sources */,
+				4F5D32AD2264A56500A016A4 /* AllFontTableController.m in Sources */,
 				4F5D329122649FE700A016A4 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,7 +344,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LZPDB9SF5E;
 				INFOPLIST_FILE = QSKitExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +362,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LZPDB9SF5E;
 				INFOPLIST_FILE = QSKitExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
