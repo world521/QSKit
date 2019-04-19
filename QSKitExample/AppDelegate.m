@@ -36,7 +36,7 @@
     QSFPSLabel *fpsLb = [[QSFPSLabel alloc] init];
     fpsLb.frame = CGRectMake(kScreenWidth - 10 - fpsLb.frame.size.width, 10, fpsLb.frame.size.width, fpsLb.frame.size.height);
     [self.window addSubview:fpsLb];
-    fpsLb.layer.zPosition = CGFLOAT_MAX;
+    fpsLb.layer.zPosition = FLT_MAX;
     
     return YES;
 }

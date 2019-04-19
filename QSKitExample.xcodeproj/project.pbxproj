@@ -14,6 +14,19 @@
 		4F5D329C22649FE800A016A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F5D329A22649FE800A016A4 /* LaunchScreen.storyboard */; };
 		4F5D329F22649FE800A016A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F5D329E22649FE800A016A4 /* main.m */; };
 		4F5D32AD2264A56500A016A4 /* AllFontTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F5D32AC2264A56500A016A4 /* AllFontTableController.m */; };
+		4F818B4E226966DC000A4750 /* QSImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F818B4D226966DC000A4750 /* QSImage.m */; };
+		4F818B512269675A000A4750 /* QSAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F818B502269675A000A4750 /* QSAnimatedImageView.m */; };
+		4F818B542269677D000A4750 /* QSImageCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F818B532269677D000A4750 /* QSImageCoder.m */; };
+		4F818B5822696DFB000A4750 /* NSBundle+QSAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F818B5722696DFB000A4750 /* NSBundle+QSAdd.m */; };
+		4F818B622269790B000A4750 /* cat@3x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4F818B602269790B000A4750 /* cat@3x.jpg */; };
+		4F818B632269790B000A4750 /* cat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4F818B612269790B000A4750 /* cat.jpg */; };
+		4F818B6522697916000A4750 /* cat@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4F818B6422697916000A4750 /* cat@2x.jpg */; };
+		4F818B68226995E7000A4750 /* NSString+QSAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F818B67226995E7000A4750 /* NSString+QSAdd.m */; };
+		4F818B6E22699FD5000A4750 /* dog.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F818B6922699FD5000A4750 /* dog.png */; };
+		4F818B6F22699FD5000A4750 /* cat@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F818B6A22699FD5000A4750 /* cat@3x.png */; };
+		4F818B7022699FD5000A4750 /* cat.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F818B6B22699FD5000A4750 /* cat.png */; };
+		4F818B7122699FD5000A4750 /* cat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F818B6C22699FD5000A4750 /* cat@2x.png */; };
+		4F818B7222699FD5000A4750 /* dog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4F818B6D22699FD5000A4750 /* dog.jpg */; };
 		4FAB8A7E22655F1D009FF1A0 /* QSCGUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FAB8A7D22655F1D009FF1A0 /* QSCGUtilities.m */; };
 		4FAB8A8122656A16009FF1A0 /* QSFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FAB8A8022656A16009FF1A0 /* QSFPSLabel.m */; };
 		4FAB8A8422656D5A009FF1A0 /* QSWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FAB8A8322656D5A009FF1A0 /* QSWeakProxy.m */; };
@@ -32,6 +45,24 @@
 		4F5D329E22649FE800A016A4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4F5D32AB2264A56500A016A4 /* AllFontTableController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllFontTableController.h; sourceTree = "<group>"; };
 		4F5D32AC2264A56500A016A4 /* AllFontTableController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllFontTableController.m; sourceTree = "<group>"; };
+		4F818B4C226966DC000A4750 /* QSImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QSImage.h; sourceTree = "<group>"; };
+		4F818B4D226966DC000A4750 /* QSImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QSImage.m; sourceTree = "<group>"; };
+		4F818B4F2269675A000A4750 /* QSAnimatedImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QSAnimatedImageView.h; sourceTree = "<group>"; };
+		4F818B502269675A000A4750 /* QSAnimatedImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QSAnimatedImageView.m; sourceTree = "<group>"; };
+		4F818B522269677D000A4750 /* QSImageCoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QSImageCoder.h; sourceTree = "<group>"; };
+		4F818B532269677D000A4750 /* QSImageCoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QSImageCoder.m; sourceTree = "<group>"; };
+		4F818B5622696DFB000A4750 /* NSBundle+QSAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSBundle+QSAdd.h"; sourceTree = "<group>"; };
+		4F818B5722696DFB000A4750 /* NSBundle+QSAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+QSAdd.m"; sourceTree = "<group>"; };
+		4F818B602269790B000A4750 /* cat@3x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cat@3x.jpg"; sourceTree = "<group>"; };
+		4F818B612269790B000A4750 /* cat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat.jpg; sourceTree = "<group>"; };
+		4F818B6422697916000A4750 /* cat@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cat@2x.jpg"; sourceTree = "<group>"; };
+		4F818B66226995E7000A4750 /* NSString+QSAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+QSAdd.h"; sourceTree = "<group>"; };
+		4F818B67226995E7000A4750 /* NSString+QSAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+QSAdd.m"; sourceTree = "<group>"; };
+		4F818B6922699FD5000A4750 /* dog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dog.png; sourceTree = "<group>"; };
+		4F818B6A22699FD5000A4750 /* cat@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cat@3x.png"; sourceTree = "<group>"; };
+		4F818B6B22699FD5000A4750 /* cat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cat.png; sourceTree = "<group>"; };
+		4F818B6C22699FD5000A4750 /* cat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cat@2x.png"; sourceTree = "<group>"; };
+		4F818B6D22699FD5000A4750 /* dog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dog.jpg; sourceTree = "<group>"; };
 		4FAB8A7722655B4A009FF1A0 /* QSCGUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QSCGUtilities.h; sourceTree = "<group>"; };
 		4FAB8A7A22655E87009FF1A0 /* QSKitMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QSKitMacro.h; sourceTree = "<group>"; };
 		4FAB8A7D22655F1D009FF1A0 /* QSCGUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSCGUtilities.m; sourceTree = "<group>"; };
@@ -78,6 +109,7 @@
 				4F5D329322649FE700A016A4 /* ViewController.m */,
 				4F5D32AB2264A56500A016A4 /* AllFontTableController.h */,
 				4F5D32AC2264A56500A016A4 /* AllFontTableController.m */,
+				4F818B592269789C000A4750 /* Resource */,
 				4F5D329522649FE700A016A4 /* Main.storyboard */,
 				4F5D329822649FE800A016A4 /* Assets.xcassets */,
 				4F5D329A22649FE800A016A4 /* LaunchScreen.storyboard */,
@@ -92,6 +124,7 @@
 			children = (
 				4F5D32AE2264A9CD00A016A4 /* Base */,
 				4F5D32B02264A9F800A016A4 /* Utility */,
+				4F818B4B226966CA000A4750 /* Image */,
 			);
 			path = QSKit;
 			sourceTree = SOURCE_ROOT;
@@ -100,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				4FAB8A7A22655E87009FF1A0 /* QSKitMacro.h */,
+				4F818B5522696DDC000A4750 /* Foundation */,
 				4F5D32AF2264A9CD00A016A4 /* Quartz */,
 			);
 			path = Base;
@@ -123,6 +157,45 @@
 				4FAB8A8322656D5A009FF1A0 /* QSWeakProxy.m */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		4F818B4B226966CA000A4750 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				4F818B4C226966DC000A4750 /* QSImage.h */,
+				4F818B4D226966DC000A4750 /* QSImage.m */,
+				4F818B4F2269675A000A4750 /* QSAnimatedImageView.h */,
+				4F818B502269675A000A4750 /* QSAnimatedImageView.m */,
+				4F818B522269677D000A4750 /* QSImageCoder.h */,
+				4F818B532269677D000A4750 /* QSImageCoder.m */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		4F818B5522696DDC000A4750 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				4F818B5622696DFB000A4750 /* NSBundle+QSAdd.h */,
+				4F818B5722696DFB000A4750 /* NSBundle+QSAdd.m */,
+				4F818B66226995E7000A4750 /* NSString+QSAdd.h */,
+				4F818B67226995E7000A4750 /* NSString+QSAdd.m */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		4F818B592269789C000A4750 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				4F818B6B22699FD5000A4750 /* cat.png */,
+				4F818B6C22699FD5000A4750 /* cat@2x.png */,
+				4F818B6A22699FD5000A4750 /* cat@3x.png */,
+				4F818B612269790B000A4750 /* cat.jpg */,
+				4F818B6422697916000A4750 /* cat@2x.jpg */,
+				4F818B602269790B000A4750 /* cat@3x.jpg */,
+				4F818B6D22699FD5000A4750 /* dog.jpg */,
+				4F818B6922699FD5000A4750 /* dog.png */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,9 +255,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F818B7022699FD5000A4750 /* cat.png in Resources */,
+				4F818B6F22699FD5000A4750 /* cat@3x.png in Resources */,
+				4F818B6E22699FD5000A4750 /* dog.png in Resources */,
+				4F818B7122699FD5000A4750 /* cat@2x.png in Resources */,
+				4F818B632269790B000A4750 /* cat.jpg in Resources */,
 				4F5D329C22649FE800A016A4 /* LaunchScreen.storyboard in Resources */,
 				4F5D329922649FE800A016A4 /* Assets.xcassets in Resources */,
+				4F818B622269790B000A4750 /* cat@3x.jpg in Resources */,
 				4F5D329722649FE700A016A4 /* Main.storyboard in Resources */,
+				4F818B7222699FD5000A4750 /* dog.jpg in Resources */,
+				4F818B6522697916000A4750 /* cat@2x.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,10 +279,15 @@
 				4FAB8A8122656A16009FF1A0 /* QSFPSLabel.m in Sources */,
 				4FAB8A7E22655F1D009FF1A0 /* QSCGUtilities.m in Sources */,
 				4F5D329422649FE700A016A4 /* ViewController.m in Sources */,
+				4F818B4E226966DC000A4750 /* QSImage.m in Sources */,
 				4F5D329F22649FE800A016A4 /* main.m in Sources */,
 				4FAB8A8422656D5A009FF1A0 /* QSWeakProxy.m in Sources */,
+				4F818B512269675A000A4750 /* QSAnimatedImageView.m in Sources */,
 				4F5D32AD2264A56500A016A4 /* AllFontTableController.m in Sources */,
+				4F818B5822696DFB000A4750 /* NSBundle+QSAdd.m in Sources */,
 				4F5D329122649FE700A016A4 /* AppDelegate.m in Sources */,
+				4F818B542269677D000A4750 /* QSImageCoder.m in Sources */,
+				4F818B68226995E7000A4750 /* NSString+QSAdd.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

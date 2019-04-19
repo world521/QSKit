@@ -12,8 +12,12 @@
     
 
 #import "ViewController.h"
+
 #import "QSCGUtilities.h"
+
 #import "AllFontTableController.h"
+
+#import "QSImage.h"
 
 @interface ViewController ()
 
@@ -24,9 +28,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self showAllFonts];
+    self.view.backgroundColor = [UIColor lightGrayColor];
+    
+//    QSImage *image = [QSImage imageNamed:@""]
+    
+//    UIImageView *img = [UIImageView new];
+//    img.frame = CGRectMake(0, 100, kScreenWidth, kScreenWidth);
+//    img.image = [UIImage imageNamed:@"cat"];
+//    [self.view addSubview:img];
+    
+    QSImage *image1 = [QSImage imageNamed:@"cat"];
+    QSImage *image2 = [QSImage imageNamed:@"dog"];
 }
 
+
+
+
+
+/*
+ 所有字体
 - (void)showAllFonts {
     UIButton *fontBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     fontBtn.bounds = CGRectMake(0, 0, 100, 30);
@@ -40,6 +60,6 @@
 - (void)pushFontVC {
     [self presentViewController:[AllFontTableController new] animated:YES completion:nil];
 }
-
+*/
 
 @end
