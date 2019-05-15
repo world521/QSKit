@@ -29,6 +29,7 @@
     NSString *path = nil;
     CGFloat scale = 1;
     
+    //加上 @1x @2x @3x
     NSArray *exts = ext.length ? @[ext] : @[@"", @"png", @"jpeg", @"jpg", @"gif", @"webp", @"apng"];
     NSArray *scales = [NSBundle preferredScales];
     for (int s = 0; s < scales.count; s++) {
@@ -42,11 +43,10 @@
     }
     if (path.length == 0) return nil;
     
-    NSData *data = [NSData  dataWithContentsOfFile:path];
+    NSData *data = [NSData dataWithContentsOfFile:path];
     if (data.length == 0) return nil;
-//    NSLog(@"%@ | data size | %@", path, @(data.length));
     
-    return [[self alloc] initWithData:data scale:1];
+    return [[self alloc] initWithData:data scale:scale];
 }
 
 - (instancetype)initWithData:(NSData *)data scale:(CGFloat)scale {
@@ -55,7 +55,11 @@
     
     _preloadedLock = dispatch_semaphore_create(1);
     
-    QSImageDecoder
+    @autoreleasepool {
+        QSImageDecoder *decode = 
+    }
+
+    return nil;
 }
 
 @end

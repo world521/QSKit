@@ -37,13 +37,11 @@
 //    img.image = [UIImage imageNamed:@"cat"];
 //    [self.view addSubview:img];
     
-    QSImage *image1 = [QSImage imageNamed:@"cat"];
-    QSImage *image2 = [QSImage imageNamed:@"dog"];
+    QSImage *image1 = [QSImage imageNamed:@"dog.jpg"];
+//    QSImage *image1 = [QSImage imageNamed:@"cat"];
+//    QSImage *image2 = [QSImage imageNamed:@"dog"];
+  
 }
-
-
-
-
 
 /*
  所有字体

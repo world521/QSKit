@@ -15,14 +15,30 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSUInteger, QSImageType) {
+    QSImageTypeUnknown = 0, // unknown
+    QSImageTypeJPEG,        // jpeg, jpg
+    QSImageTypeJPEG2000,    // jp2
+    QSImageTypeTIFF,        // tiff, tif
+    QSImageTypeBMP,         // bmp
+    QSImageTypeICO,         // ico
+    QSImageTypeICNS,        // icns
+    QSImageTypeGIF,         // gif
+    QSImageTypePNG,         // png
+    QSImageTypeWebP,        // webp
+    QSImageTypeOther        // other image format
+}
+
 #pragma mark - Decoder
 
-@interface QSImageDecoder : NSObject
+@interface QSImageDecoder : NSObject 
 
-@property (nonatomic, readonly) CGFloat scale;
+@property (nonatomic, strong, readonly, nullable) NSData *data;
+@property (nonatomic, assign, readonly) CGFloat scale;
+@property (nonatomic, assign, readonly, getter=isFinalized) BOOL finalized;
 
-- (instancetype)initWithScale:(CGFloat)scale;
 + (instancetype)decoderWithData:(NSData *)data scale:(CGFloat)scale;
+- (instancetype)initWithScale:(CGFloat)scale;
 - (BOOL)updateData:(NSData *)data final:(BOOL)final;
 
 @end
