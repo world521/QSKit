@@ -28,7 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor lightGrayColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     
 //    QSImage *image = [QSImage imageNamed:@""]
     
@@ -38,8 +38,8 @@
 //    [self.view addSubview:img];
     
     QSImage *image1 = [QSImage imageNamed:@"dog.jpg"];
-//    QSImage *image1 = [QSImage imageNamed:@"cat"];
-//    QSImage *image2 = [QSImage imageNamed:@"dog"];
+    QSImage *image2 = [QSImage imageNamed:@"cat"];
+    QSImage *image3 = [QSImage imageNamed:@"dog"];
   
 }
 

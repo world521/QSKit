@@ -61,7 +61,7 @@ QSImageType QSImageDetectType(CFDataRef data) {
             break;
         }
         /*
-        case QS_FOUR_CC('B', 'G', 'P', 0xFB): { //BPG
+        case QS_FOUR_CC('B', 'G', 'P', 0xFB): { // BPG
             return QSImageTypeBPG;
             break;
         }
@@ -72,20 +72,37 @@ QSImageType QSImageDetectType(CFDataRef data) {
     switch (magic2) {
         case QS_TWO_CC('B', 'A'):
         case QS_TWO_CC('B', 'M'):
-        case QS_TWO_CC('', ''):
-        case QS_TWO_CC('', ''):
-        case QS_TWO_CC('', ''):
-        case QS_TWO_CC('', ''): {
+        case QS_TWO_CC('I', 'C'):
+        case QS_TWO_CC('P', 'I'):
+        case QS_TWO_CC('C', 'I'):
+        case QS_TWO_CC('C', 'P'): { // BMP
+            return QSImageTypeBMP;
             break;
         }
-        
+        case QS_TWO_CC(0xFF, 0x4F): { // JPEG2000
+            return QSImageTypeJPEG2000;
+            break;
+        }
     }
     
+    if (memcmp(bytes, "\377\330\377", 3) == 0) return QSImageTypeJPEG;
+    
+    if (memcmp(bytes + 4, "\152\120\040\040\015", 5) == 0) return QSImageTypeJPEG2000;
+    
+    return QSImageTypeUnknown;
 }
+
+#pragma mark - Decoder
 
 @implementation QSImageDecoder {
     pthread_mutex_t _lock; // recursive lock
+    BOOL _sourceTypeDetected;
+#ifdef QSIMAGE_WEBP_ENABLED
+    WebPDemuxer *_webpSource;
+#endif
+    
     dispatch_semaphore_t _framesLock;
+    NSArray *_frames; // GGImageDecoderFrame
 }
 
 + (instancetype)decoderWithData:(NSData *)data scale:(CGFloat)scale {
@@ -94,7 +111,7 @@ QSImageType QSImageDetectType(CFDataRef data) {
     [decoder updateData:data final:YES];
     
     
-    return nil;
+    return decoder;
 }
 
 - (instancetype)init {
@@ -107,7 +124,7 @@ QSImageType QSImageDetectType(CFDataRef data) {
     _scale = scale;
     _framesLock = dispatch_semaphore_create(1);
     pthread_mutex_init_recursive(&_lock, true);
-    return nil;
+    return self;
 }
 
 // Updates the incremental image with new data.
@@ -129,6 +146,64 @@ QSImageType QSImageDetectType(CFDataRef data) {
     _data = data;
     
     QSImageType type = QSImageDetectType((__bridge CFDataRef)data);
+    if (_sourceTypeDetected) {
+        if (_type != type) {
+            return NO;
+        } else {
+            [self _updateSource];
+        }
+    } else {
+        if (_data.length > 16) {
+            _type = type;
+            _sourceTypeDetected = YES;
+            [self _updateSource];
+        }
+    }
+    return YES;
+}
+
+- (void)_updateSource {
+    switch (_type) {
+        case QSImageTypeWebP: {
+            [self _updateSourceWebP];
+            break;
+        }
+        case QSImageTypePNG: {
+            [self _updateSourceAPNG];
+            break;
+        }
+        default: {
+            [self _updateSourceImageIO];
+            break;
+        }
+    }
+}
+
+- (void)_updateSourceWebP {
+#ifdef QSIMAGE_WEBP_ENABLED
+    _width = 0;
+    _height = 0;
+    _loopCount = 0;
+    if (_webpSource) WebPDemuxDelete(_webpSource);
+    _webpSource = NULL;
+    
+    dispatch_semaphore_wait(_framesLock, DISPATCH_TIME_FOREVER);
+    _frames = nil;
+    dispatch_semaphore_signal(_framesLock);
+    
+    
+    
+    
+    
+#endif
+}
+
+- (void)_updateSourceAPNG {
+    
+}
+
+- (void)_updateSourceImageIO {
+    
 }
 
 @end

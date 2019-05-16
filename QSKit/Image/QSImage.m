@@ -56,7 +56,7 @@
     _preloadedLock = dispatch_semaphore_create(1);
     
     @autoreleasepool {
-        QSImageDecoder *decode = 
+        QSImageDecoder *decode = [QSImageDecoder decoderWithData:data scale:scale];
     }
 
     return nil;

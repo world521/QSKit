@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F54E1AE228D08B6005F7934 /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F54E1AD228D08B6005F7934 /* WebP.framework */; };
 		4F5D329122649FE700A016A4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F5D329022649FE700A016A4 /* AppDelegate.m */; };
 		4F5D329422649FE700A016A4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F5D329322649FE700A016A4 /* ViewController.m */; };
 		4F5D329722649FE700A016A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F5D329522649FE700A016A4 /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F54E1AD228D08B6005F7934 /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebP.framework; path = Vendor/WebP.framework; sourceTree = "<group>"; };
 		4F5D328C22649FE700A016A4 /* QSKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QSKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F5D328F22649FE700A016A4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4F5D329022649FE700A016A4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -77,18 +79,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F54E1AE228D08B6005F7934 /* WebP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F54E1AC228D08B6005F7934 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4F54E1AD228D08B6005F7934 /* WebP.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4F5D328322649FE700A016A4 = {
 			isa = PBXGroup;
 			children = (
 				4F5D32A52264A0D600A016A4 /* QSKit */,
 				4F5D328E22649FE700A016A4 /* QSKitExample */,
 				4F5D328D22649FE700A016A4 /* Products */,
+				4F54E1AC228D08B6005F7934 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -431,6 +443,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LZPDB9SF5E;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Vendor",
+				);
 				INFOPLIST_FILE = QSKitExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -449,6 +465,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LZPDB9SF5E;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Vendor",
+				);
 				INFOPLIST_FILE = QSKitExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
