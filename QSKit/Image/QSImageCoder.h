@@ -33,7 +33,6 @@
 #endif
 
 
-NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSUInteger, QSImageType) {
     QSImageTypeUnknown = 0, // unknown
@@ -49,7 +48,46 @@ typedef NS_ENUM(NSUInteger, QSImageType) {
     QSImageTypeOther        // other image format
 };
 
+/**
+ 动态图片播放时，每一帧的绘制模式
+ */
+typedef NS_ENUM(NSUInteger, QSImageDisposeMethod) {
+    /** 将当前帧增量绘制到画布上，不清空画布 */
+    QSImageDisposeNone = 0,
+    /** 绘制当前帧之前，先把画布清空为默认背景色 */
+    QSImageDisposeBackground,
+    /** 绘制下一帧之前，先把画布恢复为当前帧的前一帧 */
+    QSImageDisposePrevious,
+};
+/**
+ 当前帧的透明像素和上一画布的透明像素的混合模式
+ */
+typedef NS_ENUM(NSUInteger, QSImageBlendOperation) {
+    /** 直接覆盖 */
+    QSImageBlendNone = 0,
+    /** 需要合成 */
+    QSImageBlendOver,
+};
+
+
+
+@interface QSImageFrame : NSObject <NSCopying>
+@property (nonatomic, assign) NSUInteger index;
+@property (nonatomic, assign) NSUInteger width;
+@property (nonatomic, assign) NSUInteger height;
+@property (nonatomic, assign) NSUInteger offsetX;
+@property (nonatomic, assign) NSUInteger offsetY;
+@property (nonatomic, assign) NSTimeInterval duration;
+@property (nonatomic, assign) QSImageDisposeMethod dispose;
+@property (nonatomic, assign) QSImageBlendOperation blend;
+@property (nonatomic, strong, nullable) UIImage *image;
++ (instancetype)frameWithImage:(UIImage *)image;
+@end
+
+
+
 #pragma mark - Decoder
+
 
 @interface QSImageDecoder : NSObject 
 
@@ -68,4 +106,3 @@ typedef NS_ENUM(NSUInteger, QSImageType) {
 
 @end
 
-NS_ASSUME_NONNULL_END

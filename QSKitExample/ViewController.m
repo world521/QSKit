@@ -37,9 +37,10 @@
 //    img.image = [UIImage imageNamed:@"cat"];
 //    [self.view addSubview:img];
     
-    QSImage *image1 = [QSImage imageNamed:@"dog.jpg"];
-    QSImage *image2 = [QSImage imageNamed:@"cat"];
-    QSImage *image3 = [QSImage imageNamed:@"dog"];
+    QSImage *image1 = [QSImage imageNamed:@"SDWebImage.webp"];
+//    QSImage *image1 = [QSImage imageNamed:@"dog.jpg"];
+//    QSImage *image2 = [QSImage imageNamed:@"cat"];
+//    QSImage *image3 = [QSImage imageNamed:@"dog"];
   
 }
 

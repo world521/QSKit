@@ -92,7 +92,57 @@ QSImageType QSImageDetectType(CFDataRef data) {
     return QSImageTypeUnknown;
 }
 
+////////////////////////////////////////////////////////////////////////////////////
+
+@implementation QSImageFrame
+
++ (instancetype)frameWithImage:(UIImage *)image {
+    QSImageFrame *frame = [[QSImageFrame alloc] init];
+    frame.image = image;
+    return frame;
+}
+
+- (id)copyWithZone:(NSZone *)zone {
+    QSImageFrame *frame = [[[self class] alloc] init];
+    frame.index = _index;
+    frame.width = _width;
+    frame.height = _height;
+    frame.offsetX = _offsetX;
+    frame.offsetY = _offsetY;
+    frame.duration = _duration;
+    frame.dispose = _dispose;
+    frame.blend = _blend;
+    frame.image = [_image copy];
+    return frame;
+}
+
+@end
+
+////////////////////////////////////////////////////////////////////////////////////
+
 #pragma mark - Decoder
+
+@interface _QSImageDecoderFrame : QSImageFrame
+
+@property (nonatomic, assign) BOOL hasAlpha;
+@property (nonatomic, assign) BOOL isFullSize;
+@property (nonatomic, assign) NSUInteger blendFromIndex;
+
+@end
+
+@implementation _QSImageDecoderFrame
+
+- (id)copyWithZone:(NSZone *)zone {
+    _QSImageDecoderFrame *frame = [super copyWithZone:zone];
+    frame.hasAlpha = _hasAlpha;
+    frame.isFullSize = _isFullSize;
+    frame.blendFromIndex = _blendFromIndex;
+    return frame;
+}
+
+@end
+
+////////////////////////////////////////////////////////////////////////////////////
 
 @implementation QSImageDecoder {
     pthread_mutex_t _lock; // recursive lock
@@ -103,6 +153,9 @@ QSImageType QSImageDetectType(CFDataRef data) {
     
     dispatch_semaphore_t _framesLock;
     NSArray *_frames; // GGImageDecoderFrame
+    BOOL _needBlend;
+    NSUInteger _blendFrameIndex;
+    CGContextRef _blendCanvas;
 }
 
 + (instancetype)decoderWithData:(NSData *)data scale:(CGFloat)scale {
@@ -191,19 +244,103 @@ QSImageType QSImageDetectType(CFDataRef data) {
     _frames = nil;
     dispatch_semaphore_signal(_framesLock);
     
+    /*
+     https://developers.google.com/speed/webp/docs/api
+     */
+    WebPData webpData = {0};
+    webpData.bytes = _data.bytes;
+    webpData.size = _data.length;
+    WebPDemuxer *demuxer = WebPDemux(&webpData);
+    if (!demuxer) return;
     
+    uint32_t webpFrameCount = WebPDemuxGetI(demuxer, WEBP_FF_FRAME_COUNT);
+    uint32_t webpLoopCount = WebPDemuxGetI(demuxer, WEBP_FF_LOOP_COUNT);
+    uint32_t canvasWidth = WebPDemuxGetI(demuxer, WEBP_FF_CANVAS_WIDTH);
+    uint32_t canvasHeight = WebPDemuxGetI(demuxer, WEBP_FF_CANVAS_HEIGHT);
+    if (webpFrameCount == 0 || canvasWidth < 1 || canvasHeight < 1) {
+        WebPDemuxDelete(demuxer);
+        return;
+    }
     
+    NSMutableArray *frames = [NSMutableArray array];
+    BOOL needBlend = NO;
+    uint32_t iterIndex = 0;
+    uint32_t lastBlendIndex = 0;
+    WebPIterator iter = {0};
     
+    if (WebPDemuxGetFrame(demuxer, 1, &iter)) {
+        do {
+            _QSImageDecoderFrame *frame = [[_QSImageDecoderFrame alloc] init];
+            [frames addObject:frame];
+            
+            if (iter.dispose_method == WEBP_MUX_DISPOSE_NONE) {
+                frame.dispose = QSImageDisposeBackground;
+            }
+            if (iter.blend_method == WEBP_MUX_BLEND) {
+                frame.blend = QSImageBlendOver;
+            }
+            
+            int canvasWidth = WebPDemuxGetI(demuxer, WEBP_FF_CANVAS_WIDTH);
+            int canvasHeight = WebPDemuxGetI(demuxer, WEBP_FF_CANVAS_HEIGHT);
+            frame.index = iterIndex;
+            frame.duration = iter.duration / 1000.0;
+            frame.width = iter.width;
+            frame.height = iter.height;
+            frame.hasAlpha = iter.has_alpha;
+            frame.blend = iter.blend_method == WEBP_MUX_BLEND;
+            frame.offsetX = iter.x_offset;
+            frame.offsetY = canvasHeight - iter.y_offset - iter.height;
+            
+            BOOL sizeEqualToCanvas = (iter.width == canvasWidth && iter.height == canvasHeight);
+            BOOL offsetIsZero = (iter.x_offset == 0 && iter.y_offset == 0);
+            frame.isFullSize = sizeEqualToCanvas && offsetIsZero;
+            
+            if ((!frame.blend || !frame.hasAlpha) && frame.isFullSize) {
+                frame.blendFromIndex = lastBlendIndex = iterIndex;
+            } else {
+                if (frame.dispose && frame.isFullSize) {
+                    frame.blendFromIndex = lastBlendIndex;
+                    lastBlendIndex = iterIndex + 1;
+                } else {
+                    frame.blendFromIndex = lastBlendIndex;
+                }
+            }
+            if (frame.index != frame.blendFromIndex) needBlend = YES;
+            iterIndex++;
+        } while (WebPDemuxNextFrame(&iter));
+        WebPDemuxReleaseIterator(&iter);
+    }
     
+    if (frames.count != webpFrameCount) {
+        WebPDemuxDelete(demuxer);
+        return;
+    }
+    
+    _width = canvasWidth;
+    _height = canvasHeight;
+    _frameCount = frames.count;
+    _loopCount = webpLoopCount;
+    _needBlend = needBlend;
+    _webpSource = demuxer;
+    dispatch_semaphore_wait(_framesLock, DISPATCH_TIME_FOREVER);
+    _frames = frames;
+    dispatch_semaphore_signal(_framesLock);
+#else
+    static const char *func = __FUNCTION__;
+    static const int line = __LINE__;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSLog(@"[%s: %d] WebP is not available, check the documentation to see how to install WebP component", func, line);
+    });
 #endif
 }
 
 - (void)_updateSourceAPNG {
-    
+#warning APNG decoder
 }
 
 - (void)_updateSourceImageIO {
-    
+#warning ImageIO.framework
 }
 
 @end

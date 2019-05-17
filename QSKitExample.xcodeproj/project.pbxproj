@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4F54E1AE228D08B6005F7934 /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F54E1AD228D08B6005F7934 /* WebP.framework */; };
+		4F4C35AB228EAAE800223464 /* SDWebImage.webp in Resources */ = {isa = PBXBuildFile; fileRef = 4F4C35AA228EAAE800223464 /* SDWebImage.webp */; };
+		4F4C35AD228EAE6000223464 /* WebP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F4C35AC228EAE6000223464 /* WebP.framework */; };
 		4F5D329122649FE700A016A4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F5D329022649FE700A016A4 /* AppDelegate.m */; };
 		4F5D329422649FE700A016A4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F5D329322649FE700A016A4 /* ViewController.m */; };
 		4F5D329722649FE700A016A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F5D329522649FE700A016A4 /* Main.storyboard */; };
@@ -34,7 +35,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4F54E1AD228D08B6005F7934 /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebP.framework; path = Vendor/WebP.framework; sourceTree = "<group>"; };
+		4F4C35AA228EAAE800223464 /* SDWebImage.webp */ = {isa = PBXFileReference; lastKnownFileType = file; path = SDWebImage.webp; sourceTree = "<group>"; };
+		4F4C35AC228EAE6000223464 /* WebP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebP.framework; path = Vendor/WebP.framework; sourceTree = "<group>"; };
 		4F5D328C22649FE700A016A4 /* QSKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QSKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F5D328F22649FE700A016A4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4F5D329022649FE700A016A4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -79,7 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F54E1AE228D08B6005F7934 /* WebP.framework in Frameworks */,
+				4F4C35AD228EAE6000223464 /* WebP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,7 +91,7 @@
 		4F54E1AC228D08B6005F7934 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4F54E1AD228D08B6005F7934 /* WebP.framework */,
+				4F4C35AC228EAE6000223464 /* WebP.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -198,6 +200,7 @@
 		4F818B592269789C000A4750 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				4F4C35AA228EAAE800223464 /* SDWebImage.webp */,
 				4F818B6B22699FD5000A4750 /* cat.png */,
 				4F818B6C22699FD5000A4750 /* cat@2x.png */,
 				4F818B6A22699FD5000A4750 /* cat@3x.png */,
@@ -268,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F818B7022699FD5000A4750 /* cat.png in Resources */,
+				4F4C35AB228EAAE800223464 /* SDWebImage.webp in Resources */,
 				4F818B6F22699FD5000A4750 /* cat@3x.png in Resources */,
 				4F818B6E22699FD5000A4750 /* dog.png in Resources */,
 				4F818B7122699FD5000A4750 /* cat@2x.png in Resources */,
